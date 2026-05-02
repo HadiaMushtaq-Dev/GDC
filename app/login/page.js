@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
@@ -11,6 +11,10 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = "night";
+  }, []);
 
   function formatAuthError(err) {
     if (err?.code === "configuration-not-found") {
@@ -53,7 +57,7 @@ export default function LoginPage() {
         throw error;
       }
 
-      router.push("/dashboard");
+      window.location.href = "/dashboard";
     } catch (err) {
       setError(formatAuthError(err));
     } finally {
@@ -62,45 +66,49 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--background)]">
-      <div className="w-full max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen relative flex items-center justify-center bg-[var(--background)] overflow-hidden">
+      {/* Abstract Animated Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-center">
+        <div className="absolute w-[800px] h-[800px] rounded-full bg-[var(--accent)] opacity-[0.12] blur-[100px] animate-blob" />
+        <div className="absolute w-[600px] h-[600px] rounded-full bg-[#bf4a72] opacity-[0.1] blur-[120px] animate-blob animation-delay-2000" />
+        <div className="absolute w-[700px] h-[700px] rounded-full bg-[var(--paul-accent)] opacity-[0.12] blur-[100px] animate-blob animation-delay-4000" />
+      </div>
+
+      <div className="w-full max-w-3xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="glass-card p-8 sm:p-10 lg:p-12 rounded-3xl">
           {/* Header */}
           <div className="text-center mb-8">
             <div className="inline-block mb-4">
-              <svg viewBox="0 0 64 64" className="h-16 w-16 drop-shadow-[0_0_20px_rgba(180,142,255,0.6)]" fill="none" aria-hidden="true">
+              <svg viewBox="0 0 64 64" className="h-16 w-16 drop-shadow-[0_0_25px_rgba(180,142,255,0.7)]" fill="none" aria-hidden="true">
                 <defs>
-                  <linearGradient id="brainGradient" x1="0" y1="0" x2="64" y2="64">
+                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#d0b9ff" />
                     <stop offset="50%" stopColor="#9b7cff" />
-                    <stop offset="100%" stopColor="#7a5cff" />
+                    <stop offset="100%" stopColor="#5f4dff" />
                   </linearGradient>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                    <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
+                  <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
                   </filter>
                 </defs>
-                <path
-                  d="M32 8c8 0 14 6 14 14 0 3-1 6-2 8 0 0 4 4 6 8 2 4 2 8 2 10 0 8-6 14-14 14-8 0-14-6-14-14 0-2 0-6 2-10 2-4 6-8 6-8-1-2-2-5-2-8 0-8 6-14 14-14z"
-                  stroke="url(#brainGradient)"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  filter="url(#glow)"
-                />
-                <circle cx="26" cy="20" r="1.2" fill="url(#brainGradient)" opacity="0.9" />
-                <circle cx="38" cy="20" r="1.2" fill="url(#brainGradient)" opacity="0.9" />
-                <circle cx="30" cy="32" r="1" fill="url(#brainGradient)" opacity="0.8" />
-                <circle cx="34" cy="32" r="1" fill="url(#brainGradient)" opacity="0.8" />
-                <path d="M28 28 Q32 30 36 28" stroke="url(#brainGradient)" strokeWidth="1" opacity="0.7" />
-                <path d="M24 36 Q32 38 40 36" stroke="url(#brainGradient)" strokeWidth="1.2" opacity="0.7" />
-                <circle cx="32" cy="28" r="1.5" fill="url(#brainGradient)" opacity="1" filter="url(#glow)" />
+                <g filter="url(#logoGlow)">
+                  <path d="M32 4 L56 18 L56 46 L32 60 L8 46 L8 18 Z" stroke="url(#logoGradient)" strokeWidth="2.5" strokeLinejoin="round" fill="rgba(155, 124, 255, 0.05)" />
+                  <path d="M32 4 L32 32 M8 18 L32 32 M56 18 L32 32 M8 46 L32 32 M56 46 L32 32 M32 60 L32 32" stroke="url(#logoGradient)" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.6" />
+                  <circle cx="32" cy="32" r="5" fill="url(#logoGradient)" />
+                  <circle cx="32" cy="4" r="3" fill="#fff" opacity="0.8" />
+                  <circle cx="56" cy="18" r="3" fill="#fff" opacity="0.8" />
+                  <circle cx="56" cy="46" r="3" fill="#fff" opacity="0.8" />
+                  <circle cx="32" cy="60" r="3" fill="#fff" opacity="0.8" />
+                  <circle cx="8" cy="46" r="3" fill="#fff" opacity="0.8" />
+                  <circle cx="8" cy="18" r="3" fill="#fff" opacity="0.8" />
+                  <circle cx="32" cy="32" r="8" stroke="url(#logoGradient)" strokeWidth="1" fill="none" opacity="0.5">
+                    <animate attributeName="r" values="5;12;5" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.8;0;0.8" dur="3s" repeatCount="indefinite" />
+                  </circle>
+                </g>
               </svg>
             </div>
-            <h1 className="ui-title text-[var(--foreground)]">Founder Brain</h1>
+            <h1 className="ui-title text-[var(--foreground)] tracking-tight">Founder Brain</h1>
             <p className="text-sm text-[var(--muted)] mt-2">AI Coordination Intelligence</p>
           </div>
 

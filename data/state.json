@@ -1,0 +1,144 @@
+{
+  "users": [
+    {
+      "id": "user_62dfd379-2fc7-40ef-94c4-747f9f1f377f",
+      "email": "paul@example.com",
+      "founder": "Paul",
+      "passwordSalt": "d67706b91a7a6c8e1e2771b93cf8cc2b",
+      "passwordHash": "5d7581702102c31257bf8f6f263635c004dc8ccb31ef94b719ed265152fb85a7f265ba4af96f0d6b5479c8ba23642a39e170a37d8a156c83c979b0302ddf8519",
+      "createdAt": "2026-05-02T20:52:14.144Z"
+    },
+    {
+      "id": "user_0139f7e1-0d30-4d39-8b5f-bb460c1c715f",
+      "email": "sam@example.com",
+      "founder": "Sam",
+      "passwordSalt": "f35c8e03eeae629e3645b7aa319f33c9",
+      "passwordHash": "d559944ab8b0e01700fdad9d1847be7bb35edb7eb6edc3fdfc11da7d779fdf428a7643c1c2e438eb120dfbaeb139348c0954fa031c2e30dfeeb20b67c24096dc",
+      "createdAt": "2026-05-02T20:52:14.215Z"
+    },
+    {
+      "id": "user_3e924ea6-a585-4dcd-8c35-0838504066a0",
+      "email": "paul@gmail.com",
+      "founder": "Paul",
+      "passwordSalt": "c0bcd093d756817bf32bfe0710988c41",
+      "passwordHash": "ed7bf214746b7ff1cf36e3082982d919fdd2becd29eb6ce826c0fa15adaac342493a8b25c7d3ed49b4d2d3b57e41dc86e055bdd47b8a97180c85b3c366e22718",
+      "createdAt": "2026-05-02T20:55:17.074Z"
+    },
+    {
+      "id": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+      "email": "sam@gmail.com",
+      "founder": "Sam",
+      "passwordSalt": "c264572f63c8b9d62c192fa7117d4110",
+      "passwordHash": "0ea7297f61bd289855838c5121c698a7966549996d4d32e7e4ab2c34a6f4138342cc910e0fb95aeeccacf3e1e67c3083974f9867b2301a955d69ffd4bd8e9177",
+      "createdAt": "2026-05-02T20:57:49.364Z"
+    },
+    {
+      "id": "user_9a4b4270-9e42-4724-9dc4-1d3967691159",
+      "email": "paul1@gmail.com",
+      "founder": "Paul",
+      "passwordSalt": "c7497da6777ff045ab52e57859620007",
+      "passwordHash": "9187119f6c707bdce5cf55bbe67ea88455b83d839a19fa2134f7ae133b32adbeed7c81cda5899b909afe518eee5125f5410bec71d6fc24aa288c7d300fb38c01",
+      "createdAt": "2026-05-02T21:30:08.079Z"
+    }
+  ],
+  "sessions": {
+    "eb614fa6-dbb5-4fa6-8fdb-5410dfcd953f": "user_3e924ea6-a585-4dcd-8c35-0838504066a0",
+    "286aee8c-ff43-4cda-9693-f60230cd0b93": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+    "1790c2c9-5503-42d4-9cca-151684cea00c": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+    "9b45f6a5-1f5f-4693-bac4-5042b2dd8474": "user_9a4b4270-9e42-4724-9dc4-1d3967691159"
+  },
+  "projects": [
+    {
+      "id": "project_b557d499-5a51-4150-8c40-057825f71996",
+      "name": "TechHive",
+      "status": "open",
+      "timestamp": "2026-05-02T20:58:55.484Z"
+    },
+    {
+      "id": "project_bfed946b-68e0-443c-948f-fa36dc8e160b",
+      "name": "Skills30",
+      "status": "open",
+      "timestamp": "2026-05-02T21:30:46.314Z"
+    }
+  ],
+  "logs": [
+    {
+      "id": "log_bba6fc1d-0cd1-4466-9af5-52d67a0d46d3",
+      "founder": "Sam",
+      "content": "I've integrated the Gemini 1.5 Flash API to handle the syllabus breakdown. It's working great for Computer Science subjects, and the response time is under 2 seconds.",
+      "projectId": "project_b557d499-5a51-4150-8c40-057825f71996",
+      "userId": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+      "status": "active",
+      "timestamp": "2026-05-02T21:25:55.392Z"
+    },
+    {
+      "id": "log_3f210907-4762-4990-8a3d-db4513eb9216",
+      "founder": "Paul",
+      "content": "Awesome. I'm focusing our first marketing push on CS departments. I'll highlight the 'Instant Syllabus Breakdown' as our flagship feature to get students to sign up.",
+      "projectId": "project_b557d499-5a51-4150-8c40-057825f71996",
+      "userId": "user_3e924ea6-a585-4dcd-8c35-0838504066a0",
+      "status": "resolved",
+      "timestamp": "2026-05-02T21:26:17.583Z",
+      "resolvedAt": "2026-05-02T21:28:15.353Z"
+    },
+    {
+      "id": "log_6be9834d-53e6-49bf-b894-f16259820868",
+      "founder": "Sam",
+      "content": "I’m implementing a 'Dark Mode' and a minimalist Glassmorphic UI today. I want the students to feel like they are using a premium, high-tech tool, not a boring textbook.",
+      "projectId": "project_b557d499-5a51-4150-8c40-057825f71996",
+      "userId": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+      "status": "resolved",
+      "timestamp": "2026-05-02T21:26:38.987Z",
+      "resolvedAt": "2026-05-02T21:28:15.353Z"
+    },
+    {
+      "id": "log_ddd73a70-3089-431a-bda1-13a8246c6563",
+      "founder": "Paul",
+      "content": "Love that. I just updated our landing page brand guidelines to 'Modern Tech.' I'm also reaching out to student influencers who love that sleek, aesthetic look.",
+      "projectId": "project_b557d499-5a51-4150-8c40-057825f71996",
+      "userId": "user_3e924ea6-a585-4dcd-8c35-0838504066a0",
+      "status": "active",
+      "timestamp": "2026-05-02T21:27:15.419Z"
+    },
+    {
+      "id": "log_43b091cd-f8dd-46e7-965a-92d53fb8ff3c",
+      "founder": "Sam",
+      "content": "You can't do that. I just published our Privacy Policy and signed a 'Data Protection Guarantee' with the universities that explicitly states we will never share or sell student data to third parties",
+      "projectId": "project_b557d499-5a51-4150-8c40-057825f71996",
+      "userId": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+      "status": "active",
+      "timestamp": "2026-05-02T21:27:47.737Z"
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "conflict_2e683179-54a2-4812-befb-85cff9ce853c",
+      "projectId": "project_b557d499-5a51-4150-8c40-057825f71996",
+      "summary": "Sam updated the plan in a way that may conflict with Paul's recent direction: “Awesome. I'm focusing our first marketing push on CS departments. I'll highlight the 'Instant Syllabus Breakdown' as our flagship feature to get students to sign up.”.",
+      "resolution": "Align Paul and Sam on the same decision path before continuing. Confirm the current owner, timeline, and scope in one shared note.",
+      "triggerLogId": "log_6be9834d-53e6-49bf-b894-f16259820868",
+      "triggerFounder": "Sam",
+      "triggerContent": "I’m implementing a 'Dark Mode' and a minimalist Glassmorphic UI today. I want the students to feel like they are using a premium, high-tech tool, not a boring textbook.",
+      "relatedLogIds": [
+        "log_3f210907-4762-4990-8a3d-db4513eb9216"
+      ],
+      "status": "resolved",
+      "timestamp": "2026-05-02T21:26:40.614Z",
+      "resolvedAt": "2026-05-02T21:28:15.353Z"
+    },
+    {
+      "id": "conflict_84cb64a9-c455-4bc1-a1e9-85fbc4112205",
+      "projectId": "project_b557d499-5a51-4150-8c40-057825f71996",
+      "summary": "Sam updated the plan in a way that may conflict with Paul's recent direction: “Love that. I just updated our landing page brand guidelines to 'Modern Tech.' I'm also reaching out to student influencers who love that sleek, aesthetic look.”.",
+      "resolution": "Align Paul and Sam on the same decision path before continuing. Confirm the current owner, timeline, and scope in one shared note.",
+      "triggerLogId": "log_43b091cd-f8dd-46e7-965a-92d53fb8ff3c",
+      "triggerFounder": "Sam",
+      "triggerContent": "You can't do that. I just published our Privacy Policy and signed a 'Data Protection Guarantee' with the universities that explicitly states we will never share or sell student data to third parties",
+      "relatedLogIds": [
+        "log_ddd73a70-3089-431a-bda1-13a8246c6563"
+      ],
+      "status": "active",
+      "timestamp": "2026-05-02T21:27:49.685Z"
+    }
+  ]
+}

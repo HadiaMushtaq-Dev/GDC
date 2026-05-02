@@ -3,7 +3,8 @@ import { resolveConflict } from "@/lib/demo-store";
 
 export async function PATCH(_req, { params }) {
   try {
-    const conflict = await resolveConflict(params.id);
+    const { id } = await params;
+    const conflict = await resolveConflict(id);
     if (!conflict) {
       return NextResponse.json({ error: "Conflict not found" }, { status: 404 });
     }
