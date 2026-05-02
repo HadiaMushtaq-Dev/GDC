@@ -39,13 +39,32 @@
       "passwordSalt": "c7497da6777ff045ab52e57859620007",
       "passwordHash": "9187119f6c707bdce5cf55bbe67ea88455b83d839a19fa2134f7ae133b32adbeed7c81cda5899b909afe518eee5125f5410bec71d6fc24aa288c7d300fb38c01",
       "createdAt": "2026-05-02T21:30:08.079Z"
+    },
+    {
+      "id": "user_bde81528-bfc4-4883-a320-fb4216488024",
+      "email": "firetest+gdc503@example.com",
+      "founder": "Paul",
+      "passwordSalt": "7d667718970040c04530988c7bba8ec2",
+      "passwordHash": "1ee36ed425d08adb7a207aa33a15a2db2d27e3eb11196f8f6658f5de562b779bfd9ff2c953f67e885cb46d3ae64e15d53e46d43e00b93376ef81209a29b9f6e9",
+      "createdAt": "2026-05-02T22:43:24.820Z"
+    },
+    {
+      "id": "user_f6fb976b-3317-43ea-883c-124c5e363154",
+      "email": "paul@gmail.ccom",
+      "founder": "Paul",
+      "passwordSalt": "0ad1172e47cd7b3ba4260590d08416e0",
+      "passwordHash": "b38838723032ea04c05af0572356317a1c15b83781dc0b03c5eb02fcd09b77e5ffab66a7070574533877ff81554a7eadce2feb7ca21b1f72e4b521ff70bdd85c",
+      "createdAt": "2026-05-02T22:50:17.846Z"
     }
   ],
   "sessions": {
     "eb614fa6-dbb5-4fa6-8fdb-5410dfcd953f": "user_3e924ea6-a585-4dcd-8c35-0838504066a0",
     "286aee8c-ff43-4cda-9693-f60230cd0b93": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
     "1790c2c9-5503-42d4-9cca-151684cea00c": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
-    "9b45f6a5-1f5f-4693-bac4-5042b2dd8474": "user_9a4b4270-9e42-4724-9dc4-1d3967691159"
+    "9b45f6a5-1f5f-4693-bac4-5042b2dd8474": "user_9a4b4270-9e42-4724-9dc4-1d3967691159",
+    "96cd81cb-5ff8-4658-b617-f73aa62bbd1b": "user_bde81528-bfc4-4883-a320-fb4216488024",
+    "2fb855c4-087f-4cfe-9ff8-ca417e9a9768": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+    "a367deec-cd09-4895-8610-a0b3c0569cae": "user_f6fb976b-3317-43ea-883c-124c5e363154"
   },
   "projects": [
     {
@@ -108,6 +127,73 @@
       "userId": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
       "status": "active",
       "timestamp": "2026-05-02T21:27:47.737Z"
+    },
+    {
+      "id": "log_cb4bb637-dcd6-49c7-a324-3520e76ca5dd",
+      "founder": "Sam",
+      "content": "All workers will leave at 10",
+      "projectId": "project_bfed946b-68e0-443c-948f-fa36dc8e160b",
+      "userId": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+      "status": "active",
+      "timestamp": "2026-05-02T22:26:44.047Z"
+    },
+    {
+      "id": "log_3e5b325e-aca2-4a70-8b27-05ad49bf48b0",
+      "founder": "Paul",
+      "content": "Meeting at 12",
+      "projectId": "project_bfed946b-68e0-443c-948f-fa36dc8e160b",
+      "userId": "user_9a4b4270-9e42-4724-9dc4-1d3967691159",
+      "status": "resolved",
+      "timestamp": "2026-05-02T22:26:56.037Z",
+      "resolvedAt": "2026-05-02T22:28:32.602Z"
+    },
+    {
+      "id": "log_be609396-307a-472b-a240-c66bcde55305",
+      "founder": "Sam",
+      "content": "We need to save cash. I've decided to cancel our expensive 'Managed Security' subscription and move the app to a cheaper, shared hosting plan to extend our runway.",
+      "projectId": "project_bfed946b-68e0-443c-948f-fa36dc8e160b",
+      "userId": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+      "status": "resolved",
+      "timestamp": "2026-05-02T22:27:38.129Z",
+      "resolvedAt": "2026-05-02T22:28:32.602Z"
+    },
+    {
+      "id": "log_7ff70338-7d09-40c4-b9cf-039f8baae828",
+      "founder": "Paul",
+      "content": "Just finished the final integration for our HIPAA-compliance audit. The auditor is coming tomorrow to verify our 'Dedicated Secure Server' environment.",
+      "projectId": "project_bfed946b-68e0-443c-948f-fa36dc8e160b",
+      "userId": "user_9a4b4270-9e42-4724-9dc4-1d3967691159",
+      "status": "active",
+      "timestamp": "2026-05-02T22:27:55.467Z"
+    },
+    {
+      "id": "log_2104ba13-3660-4f4c-9bcc-8e43d343618a",
+      "founder": "Sam",
+      "content": "Just finished the final integration for our HIPAA-compliance audit. The auditor is coming tomorrow to verify our 'Dedicated Secure Server' environment.",
+      "projectId": "project_bfed946b-68e0-443c-948f-fa36dc8e160b",
+      "userId": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+      "status": "active",
+      "timestamp": "2026-05-02T22:28:52.453Z"
+    },
+    {
+      "id": "log_7420af71-85ef-4665-a628-73269b210219",
+      "founder": "Paul",
+      "content": "Great news! I just told a local clinic we could have a 'Telehealth Video' feature ready for them to beta test by next Tuesday",
+      "projectId": "project_bfed946b-68e0-443c-948f-fa36dc8e160b",
+      "userId": "user_9a4b4270-9e42-4724-9dc4-1d3967691159",
+      "status": "resolved",
+      "timestamp": "2026-05-02T22:29:19.154Z",
+      "resolvedAt": "2026-05-02T22:29:37.988Z"
+    },
+    {
+      "id": "log_039afee1-a1a3-4309-84ba-1043c49446ad",
+      "founder": "Sam",
+      "content": "Wait, I'm currently stuck debugging the secure login portal. I haven't even started looking at video streaming APIs yet; that's at least a two-week job.",
+      "projectId": "project_bfed946b-68e0-443c-948f-fa36dc8e160b",
+      "userId": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+      "status": "resolved",
+      "timestamp": "2026-05-02T22:29:34.060Z",
+      "resolvedAt": "2026-05-02T22:29:37.988Z"
     }
   ],
   "conflicts": [
@@ -139,6 +225,36 @@
       ],
       "status": "active",
       "timestamp": "2026-05-02T21:27:49.685Z"
+    },
+    {
+      "id": "conflict_15adedc5-cbcf-4e9b-a482-fb755fd83660",
+      "projectId": "project_bfed946b-68e0-443c-948f-fa36dc8e160b",
+      "summary": "Sam updated the plan in a way that may conflict with Paul's recent direction: “Meeting at 12”.",
+      "resolution": "Align Paul and Sam on the same decision path before continuing. Confirm the current owner, timeline, and scope in one shared note.",
+      "triggerLogId": "log_be609396-307a-472b-a240-c66bcde55305",
+      "triggerFounder": "Sam",
+      "triggerContent": "We need to save cash. I've decided to cancel our expensive 'Managed Security' subscription and move the app to a cheaper, shared hosting plan to extend our runway.",
+      "relatedLogIds": [
+        "log_3e5b325e-aca2-4a70-8b27-05ad49bf48b0"
+      ],
+      "status": "resolved",
+      "timestamp": "2026-05-02T22:27:38.811Z",
+      "resolvedAt": "2026-05-02T22:28:32.602Z"
+    },
+    {
+      "id": "conflict_b3efdd4f-40fc-40ed-99d7-bb5465c94e02",
+      "projectId": "project_bfed946b-68e0-443c-948f-fa36dc8e160b",
+      "summary": "Sam updated the plan in a way that may conflict with Paul's recent direction: “Great news! I just told a local clinic we could have a 'Telehealth Video' feature ready for them to beta test by next Tuesday”.",
+      "resolution": "Align Paul and Sam on the same decision path before continuing. Confirm the current owner, timeline, and scope in one shared note.",
+      "triggerLogId": "log_039afee1-a1a3-4309-84ba-1043c49446ad",
+      "triggerFounder": "Sam",
+      "triggerContent": "Wait, I'm currently stuck debugging the secure login portal. I haven't even started looking at video streaming APIs yet; that's at least a two-week job.",
+      "relatedLogIds": [
+        "log_7420af71-85ef-4665-a628-73269b210219"
+      ],
+      "status": "resolved",
+      "timestamp": "2026-05-02T22:29:34.568Z",
+      "resolvedAt": "2026-05-02T22:29:37.988Z"
     }
   ]
 }

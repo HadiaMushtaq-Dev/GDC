@@ -1,6 +1,4 @@
 "use client";
-"use client";
-
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
@@ -82,6 +80,7 @@ export default function Dashboard() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [showClearConfirm, setShowClearConfirm] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   useEffect(() => {
     document.documentElement.dataset.theme = "night";
@@ -96,9 +95,10 @@ export default function Dashboard() {
       setCurrentProject((prev) => prev || json.projects?.[0] || null);
     }
 
-    if (user) loadProjects();
+    if (user) {
+      loadProjects();
+    }
   }, [user]);
-
   const refreshState = useCallback(async () => {
     if (!currentProject?.id) {
       setLogs([]);
@@ -143,20 +143,30 @@ export default function Dashboard() {
     }
   }
 
-  async function deleteCurrentProject() {
+  function deleteCurrentProject() {
     if (!currentProject?.id) return;
-    if (!confirm(`Delete ${currentProject.name}?`)) return;
+    setShowDeleteConfirm(true);
+  }
 
+  async function confirmDeleteProject() {
+    if (!currentProject?.id) return;
+
+    const projectId = currentProject.id;
     const res = await fetch("/api/projects", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
-      body: JSON.stringify({ action: "delete", projectId: currentProject.id }),
+      body: JSON.stringify({ action: "delete", projectId }),
     });
 
     if (res.ok) {
-      setProjects((current) => current.filter((project) => project.id !== currentProject.id));
-      setCurrentProject(null);
+      setProjects((current) => current.filter((project) => project.id !== projectId));
+      setCurrentProject((current) => {
+        if (current?.id !== projectId) return current;
+        const remaining = projects.filter((project) => project.id !== projectId);
+        return remaining[0] || null;
+      });
+      setShowDeleteConfirm(false);
     }
   }
 
@@ -252,6 +262,22 @@ export default function Dashboard() {
             <div className="flex gap-3">
               <button onClick={() => setShowClearConfirm(false)} className="cursor-pointer flex-1 rounded-xl border border-[var(--border)] bg-[var(--background-subtle)] py-3 text-sm font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--border-strong)]">Cancel</button>
               <button onClick={clearProjectData} className="cursor-pointer flex-1 rounded-xl bg-gradient-to-r from-red-500 to-rose-600 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/20 transition-all hover:shadow-red-500/40 hover:-translate-y-0.5">Yes, Clear It</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showDeleteConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+          <div className="glass-card w-full max-w-sm overflow-hidden p-6 text-center animate-in fade-in zoom-in-95 duration-200 shadow-[0_0_50px_rgba(191,74,114,0.15)]">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-[var(--danger-border)] bg-[var(--danger-glow)]">
+              <span className="text-2xl">⚠️</span>
+            </div>
+            <h3 className="ui-title mb-2 text-xl font-bold text-[var(--foreground)]">Delete Project?</h3>
+            <p className="ui-body mb-8 text-sm text-[var(--muted)]">This will permanently delete the project, its logs, and its conflicts. This action cannot be undone.</p>
+            <div className="flex gap-3">
+              <button onClick={() => setShowDeleteConfirm(false)} className="cursor-pointer flex-1 rounded-xl border border-[var(--border)] bg-[var(--background-subtle)] py-3 text-sm font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--border-strong)]">Cancel</button>
+              <button onClick={confirmDeleteProject} className="cursor-pointer flex-1 rounded-xl bg-gradient-to-r from-red-500 to-rose-600 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/20 transition-all hover:-translate-y-0.5 hover:shadow-red-500/40">Yes, Delete It</button>
             </div>
           </div>
         </div>
