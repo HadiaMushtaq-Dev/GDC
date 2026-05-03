@@ -115,6 +115,16 @@
       "passwordSalt": "5d0fa495a0ed4a1c53d1d84d56f76502",
       "passwordHash": "e0f8ee3bfdbccd1b2ba3c9314be6d8447c4ee99e61b8442fe386a5d749af1bf34b0a9364507f6f42fedb46e3fe3b18915c01e6e64dc94bb6edf936256b68e7ca",
       "createdAt": "2026-05-03T10:21:32.866Z"
+    },
+    {
+      "id": "user_42ddcda0-dc1b-405a-a9d9-da5dd8172a49",
+      "email": "luna@gmail.com",
+      "name": "Luna",
+      "organization": "Flora",
+      "role": "Owner",
+      "passwordSalt": "cd1ce0b298b26231780da7fcdc9d5a3b",
+      "passwordHash": "cdd960473ec7c161850802fe83a85251dd0f449d067f9da3fd1e931d19e27df3bee51bf056245d7610cc34e590252d82198115f362d580600921ff889bde1a27",
+      "createdAt": "2026-05-03T10:25:38.230Z"
     }
   ],
   "sessions": {
@@ -128,7 +138,7 @@
     "aefbb6ec-4a34-4ce0-b442-de52648c2a38": "user_532c8a15-d809-48f5-ad71-5348f84f57f7",
     "33bc6889-6fa3-4444-be7a-09fb50b69951": "user_64d456a1-15a6-4d0a-9c3d-489bdbc4837a",
     "f187b489-58b4-4a82-a5c2-83c72dd68838": "user_62ae28d5-21f8-4580-a504-e18bbd0a2a04",
-    "bccf8021-9064-4714-ad2a-be2e64b8f6e7": "user_5e3fc317-89b2-4af2-96ff-301bc1bc3fd3"
+    "d337882c-48ac-4432-b6e9-f20906769544": "user_42ddcda0-dc1b-405a-a9d9-da5dd8172a49"
   },
   "projects": [
     {
