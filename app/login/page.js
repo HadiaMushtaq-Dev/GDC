@@ -6,7 +6,9 @@ import { useRouter } from "next/navigation";
 export default function LoginPage() {
   const router = useRouter();
   const [isLogin, setIsLogin] = useState(true);
-  const [founder, setFounder] = useState("Paul");
+  const [name, setName] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [role, setRole] = useState("Owner");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -46,7 +48,9 @@ export default function LoginPage() {
           action: isLogin ? "login" : "signup",
           email,
           password,
-          founder,
+          name: !isLogin ? name : undefined,
+          organization: !isLogin ? organization : undefined,
+          role: !isLogin ? role : undefined,
         }),
       });
 
@@ -136,37 +140,59 @@ export default function LoginPage() {
             </button>
           </div>
 
-          {/* Founder Selection (only for signup) */}
+          {/* Role Selection (only for signup) */}
           {!isLogin && (
-            <div className="mb-6">
-              <label className="ui-label block mb-2">Select Founder</label>
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  onClick={() => setFounder("Paul")}
-                  type="button"
-                  className={`py-3 px-3 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer ${
-                    founder === "Paul"
-                      ? "bg-gradient-to-br from-[var(--paul-accent)] to-[#5a7eff] text-white shadow-md"
-                      : "bg-[var(--background-subtle)] text-[var(--muted)] border border-[var(--border)]"
-                  }`}
-                >
-                  <span className="text-base">🏢</span> Paul<br/>
-                  <span className="text-xs opacity-70">Business</span>
-                </button>
-                <button
-                  onClick={() => setFounder("Sam")}
-                  type="button"
-                  className={`py-3 px-3 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer ${
-                    founder === "Sam"
-                      ? "bg-gradient-to-br from-[var(--sam-accent)] to-[#3ad5b4] text-white shadow-md"
-                      : "bg-[var(--background-subtle)] text-[var(--muted)] border border-[var(--border)]"
-                  }`}
-                >
-                  <span className="text-base">💻</span> Sam<br/>
-                  <span className="text-xs opacity-70">Technical</span>
-                </button>
+            <>
+              <div className="mb-4">
+                <label className="ui-label block mb-2">Name</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your Name"
+                  className="w-full rounded-2xl px-4 py-3.5 border border-[var(--border)] bg-[var(--background-subtle)] text-[var(--foreground)] placeholder:text-[var(--muted)]/50 focus-ring"
+                />
               </div>
-            </div>
+              <div className="mb-4">
+                <label className="ui-label block mb-2">Organization</label>
+                <input
+                  type="text"
+                  value={organization}
+                  onChange={(e) => setOrganization(e.target.value)}
+                  placeholder="Organization Name"
+                  className="w-full rounded-2xl px-4 py-3.5 border border-[var(--border)] bg-[var(--background-subtle)] text-[var(--foreground)] placeholder:text-[var(--muted)]/50 focus-ring"
+                />
+              </div>
+              <div className="mb-6">
+                <label className="ui-label block mb-2">Select Role</label>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    onClick={() => setRole("Owner")}
+                    type="button"
+                    className={`py-3 px-3 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer ${
+                      role === "Owner"
+                        ? "bg-gradient-to-br from-[var(--paul-accent)] to-[#5a7eff] text-white shadow-md"
+                        : "bg-[var(--background-subtle)] text-[var(--muted)] border border-[var(--border)]"
+                    }`}
+                  >
+                    <span className="text-base">🏢</span> Owner<br/>
+                    <span className="text-xs opacity-70">Business</span>
+                  </button>
+                  <button
+                    onClick={() => setRole("Tech Lead")}
+                    type="button"
+                    className={`py-3 px-3 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer ${
+                      role === "Tech Lead"
+                        ? "bg-gradient-to-br from-[var(--sam-accent)] to-[#3ad5b4] text-white shadow-md"
+                        : "bg-[var(--background-subtle)] text-[var(--muted)] border border-[var(--border)]"
+                    }`}
+                  >
+                    <span className="text-base">💻</span> Tech Lead<br/>
+                    <span className="text-xs opacity-70">Technical</span>
+                  </button>
+                </div>
+              </div>
+            </>
           )}
 
           {/* Email Input */}

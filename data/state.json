@@ -55,6 +55,46 @@
       "passwordSalt": "0ad1172e47cd7b3ba4260590d08416e0",
       "passwordHash": "b38838723032ea04c05af0572356317a1c15b83781dc0b03c5eb02fcd09b77e5ffab66a7070574533877ff81554a7eadce2feb7ca21b1f72e4b521ff70bdd85c",
       "createdAt": "2026-05-02T22:50:17.846Z"
+    },
+    {
+      "id": "user_532c8a15-d809-48f5-ad71-5348f84f57f7",
+      "email": "bill@gmail.com",
+      "name": "Bill Williams",
+      "organization": "Tech Stars",
+      "role": "Owner",
+      "passwordSalt": "41cdad0851c6015b683471824a7171f4",
+      "passwordHash": "d4c93e3a1238ee31b8c42068741a419e46a68b94d8401eadceefdd0b64b3fd5a869b15a87de60ce00ca2bfedc37772f5bb25905fc8b8bb9e9d1d36b6b53fe073",
+      "createdAt": "2026-05-03T09:47:56.563Z"
+    },
+    {
+      "id": "user_386dea7c-0aa0-4175-8f64-c2d4049971ef",
+      "email": "ven@gmail.com",
+      "name": "Ven Albert",
+      "organization": "Tech Stars",
+      "role": "Tech Lead",
+      "passwordSalt": "70317a4b9af2c3127ae5364ce8aea2f8",
+      "passwordHash": "50d027289af6bc302128e6908d70bd75c74d5534ea085f31d5f12c0c40e9d9114e3df5ee1e5ded369c54eb0f5be5ed96dd2a0a1a8d48c0b41b1494ae38c8b10d",
+      "createdAt": "2026-05-03T09:49:06.966Z"
+    },
+    {
+      "id": "user_64d456a1-15a6-4d0a-9c3d-489bdbc4837a",
+      "email": "alina@gmail.com",
+      "name": "Alina Ahmed",
+      "organization": "Sparkles",
+      "role": "Owner",
+      "passwordSalt": "3bb5d45887070557588d609c87eedd07",
+      "passwordHash": "aa36d3919fca5db3a71d9751cbd5f27929ed339ea0fd51ce57a7f2faedc54fd050d6d4371b7b230ead4241da6ae81604125bcabdacd566de338dbfb9f2a09085",
+      "createdAt": "2026-05-03T09:53:41.317Z"
+    },
+    {
+      "id": "user_8df91f76-9914-48eb-b1a6-7d1afa4de163",
+      "email": "lina@gmail.com",
+      "name": "Lina Ali",
+      "organization": "Sparkles",
+      "role": "Tech Lead",
+      "passwordSalt": "405e8d8d19e194f6cc427d2da5cda0e1",
+      "passwordHash": "6cbb77caf2d56cc9c5db8617a06408ee8a188318bc75e98f7031614540e0cbc9f7a58403c5f312417ba7a1fa743cf55e40bab36a2bb664479443e10f53adee8c",
+      "createdAt": "2026-05-03T09:54:45.299Z"
     }
   ],
   "sessions": {
@@ -64,7 +104,10 @@
     "9b45f6a5-1f5f-4693-bac4-5042b2dd8474": "user_9a4b4270-9e42-4724-9dc4-1d3967691159",
     "96cd81cb-5ff8-4658-b617-f73aa62bbd1b": "user_bde81528-bfc4-4883-a320-fb4216488024",
     "2fb855c4-087f-4cfe-9ff8-ca417e9a9768": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
-    "2682fd90-b788-447a-b985-3de66a9f08eb": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb"
+    "2682fd90-b788-447a-b985-3de66a9f08eb": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
+    "aefbb6ec-4a34-4ce0-b442-de52648c2a38": "user_532c8a15-d809-48f5-ad71-5348f84f57f7",
+    "8011542c-ab24-49dd-a695-a751f4f57062": "user_386dea7c-0aa0-4175-8f64-c2d4049971ef",
+    "33bc6889-6fa3-4444-be7a-09fb50b69951": "user_64d456a1-15a6-4d0a-9c3d-489bdbc4837a"
   },
   "projects": [
     {

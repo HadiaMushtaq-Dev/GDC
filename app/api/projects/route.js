@@ -1,9 +1,15 @@
 import { NextResponse } from "next/server";
-import { createProject, deleteProject, listProjects, updateProject } from "@/lib/demo-store";
+import { createProject, deleteProject, listProjects, updateProject, getUserFromSession } from "@/lib/demo-store";
 
-export async function GET() {
+const COOKIE_NAME = "founder_session";
+
+export async function GET(req) {
   try {
-    const projects = await listProjects();
+    const token = req.cookies.get(COOKIE_NAME)?.value;
+    const user = await getUserFromSession(token);
+    if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+    const projects = await listProjects(user.organization);
     return NextResponse.json({ projects });
   } catch (err) {
     console.error("Projects GET error:", err);
@@ -13,12 +19,16 @@ export async function GET() {
 
 export async function POST(req) {
   try {
+    const token = req.cookies.get(COOKIE_NAME)?.value;
+    const user = await getUserFromSession(token);
+    if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
     const body = await req.json();
     const { action = "create", name, projectId } = body;
 
     if (action === "create") {
       if (!name) return NextResponse.json({ error: "Missing project name" }, { status: 400 });
-      const project = await createProject(name);
+      const project = await createProject(name, user.organization);
       return NextResponse.json({ success: true, projectId: project.id, project });
     }
 
@@ -30,7 +40,7 @@ export async function POST(req) {
     }
 
     if (action === "delete") {
-      await deleteProject(projectId);
+      await deleteProject(projectId, user.organization);
       return NextResponse.json({ success: true });
     }
 

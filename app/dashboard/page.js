@@ -69,7 +69,7 @@ function relativeTime(ts) {
 
 export default function Dashboard() {
   const router = useRouter();
-  const { user, founder, loading, logout } = useAuth();
+  const { user, loading, logout } = useAuth();
   const [content, setContent] = useState("");
   const [projects, setProjects] = useState([]);
   const [currentProject, setCurrentProject] = useState(null);
@@ -172,7 +172,7 @@ export default function Dashboard() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!content.trim() || !currentProject?.id || !founder || !user) return;
+    if (!content.trim() || !currentProject?.id || !user) return;
 
     setIsSubmitting(true);
     setSubmitError("");
@@ -184,7 +184,6 @@ export default function Dashboard() {
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({
-          founder,
           content,
           projectId: currentProject.id,
           userId: user.id,
@@ -239,8 +238,8 @@ export default function Dashboard() {
               <div className="dot-pulse absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[var(--background)] bg-[var(--success)]" />
             </div>
             <div>
-              <h1 className="ui-title font-extrabold text-[var(--foreground)]">Founder Brain</h1>
-              <p className="ui-body mt-1 max-w-lg text-[var(--muted)]">{founder} – shared project coordination</p>
+              <h1 className="ui-title font-extrabold text-[var(--foreground)]">{user.organization} - Founder Brain</h1>
+              <p className="ui-body mt-1 max-w-lg text-[var(--muted)]">{user.name} ({user.role}) – shared project coordination</p>
             </div>
           </div>
 
@@ -315,12 +314,12 @@ export default function Dashboard() {
               <div className="absolute bottom-[-30%] right-[-20%] w-[60%] h-[60%] rounded-full bg-gradient-to-tl from-[var(--sam-accent)] to-transparent opacity-[0.15] blur-[50px] animate-blob animation-delay-2000 pointer-events-none" />
 
               <div className="p-3 rounded-2xl border border-[var(--accent)] bg-[var(--accent-glow)] relative z-10">
-                <p className="text-sm font-semibold text-[var(--accent-light)]">{founder === "Paul" ? "🏢 Paul - Business" : "💻 Sam - Technical"}</p>
+                <p className="text-sm font-semibold text-[var(--accent-light)]">{user.role === "Owner" ? `🏢 ${user.name} - Business` : `💻 ${user.name} - Technical`}</p>
               </div>
 
               <form onSubmit={handleSubmit} className="mt-3 flex flex-col gap-3 relative z-10">
                 <div className="relative">
-                  <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder={founder === "Paul" ? "Write Paul's update here..." : "Write Sam's update here..."} rows={5} className="focus-ring w-full resize-none rounded-2xl border border-[var(--border)] bg-[var(--background-subtle)] p-4 text-[0.98rem] leading-relaxed text-[var(--foreground)] placeholder:text-[var(--muted)]/40 transition-all duration-200 focus:border-[var(--accent)]/50 focus:bg-[var(--background)]" />
+                  <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder={`Write ${user.name}'s update here...`} rows={5} className="focus-ring w-full resize-none rounded-2xl border border-[var(--border)] bg-[var(--background-subtle)] p-4 text-[0.98rem] leading-relaxed text-[var(--foreground)] placeholder:text-[var(--muted)]/40 transition-all duration-200 focus:border-[var(--accent)]/50 focus:bg-[var(--background)]" />
                   <div className="absolute bottom-3 right-3 font-mono text-[10px] text-[var(--muted)]/40">{content.length > 0 ? `${content.length} chars` : ""}</div>
                 </div>
 
@@ -343,16 +342,16 @@ export default function Dashboard() {
                   <div className="py-10 text-center">
                     <div className="empty-state-icon bg-[var(--glass)]">📝</div>
                     <p className="ui-body font-medium text-[var(--muted)]">No activity yet</p>
-                    <p className="ui-small mt-1 text-[var(--muted)]/50">Paul and Sam will both see messages here.</p>
+                    <p className="ui-small mt-1 text-[var(--muted)]/50">Your team will see messages here.</p>
                   </div>
                 ) : (
                   logs.map((log) => (
                     <div key={log.id} className="group flex items-start gap-3 rounded-xl border border-transparent bg-[var(--background-subtle)] p-3 transition-all duration-200 hover:border-[var(--border-strong)]">
-                      <div className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-[11px] font-bold ${log.founder === "Paul" ? "bg-[var(--paul-bg)] text-[var(--paul-accent)]" : "bg-[var(--sam-bg)] text-[var(--sam-accent)]"}`}>{log.founder === "Paul" ? "P" : "S"}</div>
+                      <div className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-[11px] font-bold ${log.role === "Owner" ? "bg-[var(--paul-bg)] text-[var(--paul-accent)]" : "bg-[var(--sam-bg)] text-[var(--sam-accent)]"}`}>{(log.name || "U").charAt(0).toUpperCase()}</div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm font-bold text-[var(--foreground)]">{log.founder}</span>
-                          <span className={`inline-block h-1 w-1 rounded-full ${log.founder === "Paul" ? "bg-[var(--paul-accent)]" : "bg-[var(--sam-accent)]"}`} />
+                          <span className="text-sm font-bold text-[var(--foreground)]">{log.name || "Unknown"}</span>
+                          <span className={`inline-block h-1 w-1 rounded-full ${log.role === "Owner" ? "bg-[var(--paul-accent)]" : "bg-[var(--sam-accent)]"}`} />
                           <span className="font-mono text-[11px] text-[var(--muted)]">{relativeTime(log.timestamp)}</span>
                         </div>
                         <p className="ui-body mt-1 break-words leading-relaxed text-[var(--foreground-secondary)]">{log.content}</p>
@@ -379,7 +378,7 @@ export default function Dashboard() {
                   <div className="flex flex-col items-center justify-center py-16">
                     <div className="empty-state-icon border border-[rgba(45,212,160,0.15)] bg-[var(--success-glow)]">✓</div>
                     <p className="text-sm font-semibold text-[var(--success)]">All Clear</p>
-                    <p className="mt-1.5 max-w-xs text-center text-xs text-[var(--muted)]">No coordination gaps detected yet. Post a conflicting Paul or Sam update to generate one.</p>
+                    <p className="mt-1.5 max-w-xs text-center text-xs text-[var(--muted)]">No coordination gaps detected yet. Post a conflicting update to generate one.</p>
                   </div>
                 ) : (
                   activeConflicts.map((conflict) => (
@@ -437,7 +436,7 @@ export default function Dashboard() {
       <footer className="border-t border-[var(--border)] px-4 py-4 sm:px-6">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <p className="text-sm font-medium text-[var(--muted)]">Founder Brain · Coordination Intelligence</p>
-          <p className="hidden text-sm text-[var(--muted)] sm:block">Built for Paul and Sam.</p>
+          <p className="hidden text-sm text-[var(--muted)] sm:block">Built for {user.organization}.</p>
         </div>
       </footer>
     </div>
