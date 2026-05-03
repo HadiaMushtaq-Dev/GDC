@@ -11,16 +11,16 @@ export async function POST(req) {
     let user;
     if (action === "signup") {
       user = await registerUser(body);
+      return NextResponse.json({ success: true, user });
     } else if (action === "login") {
       user = await authenticateUser(body);
+      const token = await createSession(user.id);
+      const response = NextResponse.json({ success: true, user });
+      response.cookies.set({ name: COOKIE_NAME, value: token, httpOnly: true, sameSite: "lax", path: "/" });
+      return response;
     } else {
       return NextResponse.json({ error: "Unknown auth action" }, { status: 400 });
     }
-
-    const token = await createSession(user.id);
-    const response = NextResponse.json({ success: true, user });
-    response.cookies.set({ name: COOKIE_NAME, value: token, httpOnly: true, sameSite: "lax", path: "/" });
-    return response;
   } catch (error) {
     const message = error?.code === "email-already-in-use"
       ? "This email is already registered."

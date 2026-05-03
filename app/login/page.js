@@ -13,6 +13,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   useEffect(() => {
     document.documentElement.dataset.theme = "night";
@@ -37,6 +38,7 @@ export default function LoginPage() {
   async function handleAuth(e) {
     e.preventDefault();
     setError("");
+    setSuccessMsg("");
     setLoading(true);
 
     try {
@@ -61,7 +63,13 @@ export default function LoginPage() {
         throw error;
       }
 
-      window.location.href = "/dashboard";
+      if (!isLogin) {
+        setIsLogin(true);
+        setPassword("");
+        setSuccessMsg("Account created successfully. Please sign in.");
+      } else {
+        window.location.href = "/dashboard";
+      }
     } catch (err) {
       setError(formatAuthError(err));
     } finally {
@@ -119,7 +127,7 @@ export default function LoginPage() {
           {/* Mode Toggle */}
           <div className="grid grid-cols-2 gap-3 mb-6">
             <button
-              onClick={() => setIsLogin(true)}
+              onClick={() => { setIsLogin(true); setError(""); setSuccessMsg(""); }}
               className={`py-3 px-4 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer ${
                 isLogin
                   ? "bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-white shadow-md"
@@ -129,7 +137,7 @@ export default function LoginPage() {
               Sign In
             </button>
             <button
-              onClick={() => setIsLogin(false)}
+              onClick={() => { setIsLogin(false); setError(""); setSuccessMsg(""); }}
               className={`py-3 px-4 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer ${
                 !isLogin
                   ? "bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-white shadow-md"
@@ -223,6 +231,13 @@ export default function LoginPage() {
           {error && (
             <div className="mb-4 p-3 rounded-xl bg-[var(--danger-glow)] text-[var(--danger)] text-sm border border-[var(--danger-border)]">
               {error}
+            </div>
+          )}
+
+          {/* Success Message */}
+          {successMsg && (
+            <div className="mb-4 p-3 rounded-xl bg-[var(--success-glow)] text-[var(--success)] text-sm border border-[rgba(45,212,160,0.15)] flex items-center gap-2">
+              <span>✓</span> {successMsg}
             </div>
           )}
 

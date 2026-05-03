@@ -95,6 +95,26 @@
       "passwordSalt": "405e8d8d19e194f6cc427d2da5cda0e1",
       "passwordHash": "6cbb77caf2d56cc9c5db8617a06408ee8a188318bc75e98f7031614540e0cbc9f7a58403c5f312417ba7a1fa743cf55e40bab36a2bb664479443e10f53adee8c",
       "createdAt": "2026-05-03T09:54:45.299Z"
+    },
+    {
+      "id": "user_62ae28d5-21f8-4580-a504-e18bbd0a2a04",
+      "email": "hadiamushtaq@gmail.com",
+      "name": "Hadia Mushtaq",
+      "organization": "Mona Scoops",
+      "role": "Owner",
+      "passwordSalt": "3571584ea3c9e88a3bf3138d910b09e6",
+      "passwordHash": "52b386665cd240f08d5186857eee7d06b703350ea16a0986ceea9061127ac4e1a7de599ad51d10d8e3c80374cb735c919b7a402aacbc949be6d9d66d51be3ab4",
+      "createdAt": "2026-05-03T10:20:12.643Z"
+    },
+    {
+      "id": "user_5e3fc317-89b2-4af2-96ff-301bc1bc3fd3",
+      "email": "mona@gmail.com",
+      "name": "Mona",
+      "organization": "Mona Scoops",
+      "role": "Tech Lead",
+      "passwordSalt": "5d0fa495a0ed4a1c53d1d84d56f76502",
+      "passwordHash": "e0f8ee3bfdbccd1b2ba3c9314be6d8447c4ee99e61b8442fe386a5d749af1bf34b0a9364507f6f42fedb46e3fe3b18915c01e6e64dc94bb6edf936256b68e7ca",
+      "createdAt": "2026-05-03T10:21:32.866Z"
     }
   ],
   "sessions": {
@@ -106,8 +126,9 @@
     "2fb855c4-087f-4cfe-9ff8-ca417e9a9768": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
     "2682fd90-b788-447a-b985-3de66a9f08eb": "user_38703612-9e8b-49e1-b2f8-40655a2fdedb",
     "aefbb6ec-4a34-4ce0-b442-de52648c2a38": "user_532c8a15-d809-48f5-ad71-5348f84f57f7",
-    "8011542c-ab24-49dd-a695-a751f4f57062": "user_386dea7c-0aa0-4175-8f64-c2d4049971ef",
-    "33bc6889-6fa3-4444-be7a-09fb50b69951": "user_64d456a1-15a6-4d0a-9c3d-489bdbc4837a"
+    "33bc6889-6fa3-4444-be7a-09fb50b69951": "user_64d456a1-15a6-4d0a-9c3d-489bdbc4837a",
+    "f187b489-58b4-4a82-a5c2-83c72dd68838": "user_62ae28d5-21f8-4580-a504-e18bbd0a2a04",
+    "bccf8021-9064-4714-ad2a-be2e64b8f6e7": "user_5e3fc317-89b2-4af2-96ff-301bc1bc3fd3"
   },
   "projects": [
     {
